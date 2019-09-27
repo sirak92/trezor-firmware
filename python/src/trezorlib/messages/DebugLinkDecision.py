@@ -18,10 +18,16 @@ class DebugLinkDecision(p.MessageType):
         yes_no: bool = None,
         up_down: bool = None,
         input: str = None,
+        x: int = None,
+        y: int = None,
+        wait: bool = None,
     ) -> None:
         self.yes_no = yes_no
         self.up_down = up_down
         self.input = input
+        self.x = x
+        self.y = y
+        self.wait = wait
 
     @classmethod
     def get_fields(cls) -> Dict:
@@ -29,4 +35,7 @@ class DebugLinkDecision(p.MessageType):
             1: ('yes_no', p.BoolType, 0),
             2: ('up_down', p.BoolType, 0),
             3: ('input', p.UnicodeType, 0),
+            4: ('x', p.UVarintType, 0),
+            5: ('y', p.UVarintType, 0),
+            6: ('wait', p.BoolType, 0),
         }
